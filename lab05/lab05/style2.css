@@ -1,0 +1,17 @@
+nav#one{
+    background-color: antiquewhite;
+    position: fixed;
+    top:0px;
+    width: 100%;
+}
+
+nav#two{
+   position: fixed;
+    bottom:0px; 
+    width: 100%;
+}
+
+a{
+    color: darkorchid;
+    font-size: 26pt;
+}
