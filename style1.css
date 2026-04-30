@@ -1,0 +1,14 @@
+body{
+    background-color: #251044;
+    font-family: Arial, Helvetica, sans-serif;
+    color: white;
+    font-size: 20pt;
+    position:absolute;
+    text-align: center;
+    left: 45%;
+    top: 30%;
+}
+
+a{
+    color: white;
+}
