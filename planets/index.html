@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <title>Solar System</title>
+        <link rel="stylesheet" href="style.css" />
+    </head>
+    <body>
+    
+        <div class="mainheader">Planets of the Solar System</div>
+        
+        
+    <div class="rowone">
+    <div class="itemone mercury"><div class="tooltip"> 
+        <p>Mercury</p>
+        <p>Dist to Earth: 77M km</p>
+        <p>Avg Temp: 430° C</p>
+    </div><img src="mercury.png"></div>
+    <div class="itemone venus"><div class="tooltip">
+         <p>Venus</p>
+        <p>Dist to Earth: 38M km</p>
+        <p>Avg Temp: 60° C</p>
+        </div><img src="venus.png"></div>
+    <div class="itemone earth"><div class="tooltip">
+        <p>Earth</p>
+        <p>Avg Temp: 15° C</p>
+        </div><img src="pngtree-beautiful-earth-elements-png-image_3704319.png"></div>
+    <div class="itemone mars"><div class="tooltip">
+        <p>Mars</p>
+        <p>Dist to Earth: 78M km</p>
+        <p>Avg Temp: -65° C</p>
+    </div><img src="mars.png"></div>
+    <div class="itemone jupiter"><div class="tooltip">
+        <p>Jupiter</p>
+        <p>Dist to Earth: 628M km</p>
+        <p>Avg Temp: -110° C</p>
+    </div><img src="jupiter.png"></div>
+    <div class="itemone saturnone"><div class="tooltip">
+        <p>Saturn</p>
+        <p>Dist to Earth: 1.2B km</p>
+        <p>Avg Temp: -140° C</p> 
+    </div><img src="saturn.png"></div>
+    <div class="itemone uranus"><div class="tooltip">
+        <p>Uranus</p>
+        <p>Dist to Earth: 2.6B km</p>
+        <p>Avg Temp: -195° C</p>
+        </div><img src="uranus.png"></div>
+    <div class="itemone neptune"><div class="tooltip">
+        <p>Neptune</p>
+        <p>Dist to Earth: 4.3B km</p>
+        <p>Avg Temp: -201° C</p>
+    </div><img src="neptune.png"></div>
+</div>
+    
+        <div class="secondheader">Compare sizes with the Earth?</div>
+        
+        <div class="rowtwo">
+    <div class="itemtwo mercury"><img src="mercury.png"></div>
+    <div class="itemtwo venus"><img src="venus.png"></div>
+    <div class="itemtwo earth"><img src="pngtree-beautiful-earth-elements-png-image_3704319.png"></div>
+    <div class="itemtwo mars"><img src="mars.png"></div>
+    <div class="itemtwo jupiter"><img src="jupiter.png"></div>
+    <div class="itemtwo saturntwo"><img src="saturn.png"></div>
+    <div class="itemtwo uranus"><img src="uranus.png"></div>
+    <div class="itemtwo neptune"><img src="neptune.png"></div>
+</div>
+        
+<script>
+const MAX_SCALE = 7; 
+
+const planets = [
+    { class: 'mercury', scale: 0.38 },
+    { class: 'venus', scale: 0.95 },
+    { class: 'earth', scale: 1 },
+    { class: 'mars', scale: 0.53 },
+    { class: 'jupiter', scale: 11.2 },
+    { class: 'saturntwo', scale: 15 },
+    { class: 'uranus', scale: 3.8 },
+    { class: 'neptune', scale: 3.5 }
+];
+
+// ВАЖНО: ищем только внутри rowtwo
+const secondRow = document.querySelector('.rowtwo');
+
+planets.forEach(planet => {
+    const elements = secondRow.querySelectorAll('.' + planet.class);
+
+    elements.forEach(el => {
+        el.addEventListener('mouseenter', () => {
+            if (planet.class !== 'earth') {
+                const safeScale = Math.min(planet.scale, MAX_SCALE);
+                el.style.transform = `scale(${safeScale})`;
+                el.style.zIndex = 10;
+            }
+        });
+
+        el.addEventListener('mouseleave', () => {
+            el.style.transform = 'scale(1)';
+            el.style.zIndex = 1;
+        });
+    });
+});
+</script>   
+        
+        
+        
+        
+    </body>
+</html>
